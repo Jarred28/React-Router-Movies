@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 export default class Movie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movie: null
+      movie: null,
+      id: props.match.params.id
     };
   }
 
@@ -42,7 +44,7 @@ export default class Movie extends Component {
       return <div>Loading movie information...</div>;
     }
 
-    const { title, director, metascore, stars } = this.state.movie;
+    const { title, director, metascore, stars, id } = this.state.movie;
     return (
       <div className="save-wrapper">
         <div className="movie-card">
